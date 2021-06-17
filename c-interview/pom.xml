@@ -10,6 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>c-interview</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>c-interview-rabbitmq-test</module>
+        <module>c-interview-grammar-test</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
