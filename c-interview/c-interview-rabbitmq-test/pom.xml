@@ -22,9 +22,8 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.cc</groupId>
-            <artifactId>c-rabbitmq-springboot-starter</artifactId>
-            <version>1.0</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
     </dependencies>
     <build>
