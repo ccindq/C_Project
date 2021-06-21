@@ -25,7 +25,7 @@ public class WorkQueueSender {
         String msg = "这是一个work模式";
         for (int i = 0; i < 10; i++) {
             CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
-            logger.info("class:{},message:{}", "TopicSender", msg);
+            logger.info("class:{},message:{}", "WorkQueueSender", msg);
             rabbitTemplate.convertAndSend("spring.work.queue", (Object) (msg + i),correlationData);
             Thread.sleep(5000);
         }

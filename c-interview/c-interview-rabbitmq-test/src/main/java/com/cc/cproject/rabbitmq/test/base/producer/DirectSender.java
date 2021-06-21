@@ -19,11 +19,11 @@ public class DirectSender {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    public void send(int i) {
+    public void send(String msg) {
         String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-        String content = i + ":hello!" + date;
+        String content = "directMsg:" + msg + "," + date;
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
         logger.info("class:{},message:{}", "DirectSender", content);
-        this.rabbitTemplate.convertAndSend("amq.direct", "direct_routingKey", content, correlationData);
+        this.rabbitTemplate.convertAndSend("directExchange", "direct_routingKey", content, correlationData);
     }
 }

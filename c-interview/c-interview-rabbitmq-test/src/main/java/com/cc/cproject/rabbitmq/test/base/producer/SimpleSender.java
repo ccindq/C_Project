@@ -16,11 +16,11 @@ public class SimpleSender {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    public void send(int i) {
+    public void send(String msg) {
         String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-        String content = i + ":hello!" + date;
+        String content = "SimpleSender:" + msg + "," + date;
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
-        rabbitTemplate.convertAndSend("spring.simple.queue", (Object) content,correlationData);
+        rabbitTemplate.convertAndSend("spring.simple.queue", (Object) content, correlationData);
     }
 
 }

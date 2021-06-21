@@ -19,19 +19,12 @@ public class TopicSender {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    public void send1() {
+    public void send(String msg, String routingkey) {
         String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-        String content = "hello!" + date;
+        String content = "TopicSender" + msg + "," + date;
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
-        logger.info("class:{},message:{}", "TopicSender", content);
-        this.rabbitTemplate.convertAndSend("amq.topic", "topic.msg", content, correlationData);
+        logger.info("class:{},routingKey:{},message:{}", "TopicSender", routingkey, content);
+        this.rabbitTemplate.convertAndSend("topicExchange", routingkey, content, correlationData);
     }
 
-    public void send2() {
-        String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-        String content = "hello!" + date;
-        CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
-        logger.info("class:{},message:{}", "TopicSender", content);
-        this.rabbitTemplate.convertAndSend("amq.topic", "topic.msg1", content, correlationData);
-    }
 }
