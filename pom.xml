@@ -81,6 +81,9 @@
     <modules>
         <module>c-integration</module>
         <module>c-interview</module>
+        <module>c-api-gateway</module>
+        <module>c-biz-project</module>
+
     </modules>
 
     <repositories>
