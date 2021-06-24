@@ -14,6 +14,7 @@
     <modules>
         <module>c-interview-rabbitmq-test</module>
         <module>c-interview-grammar-test</module>
+        <module>c-interview-redis-test</module>
     </modules>
 
     <properties>
