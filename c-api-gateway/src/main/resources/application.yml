@@ -25,6 +25,10 @@ spring:
             - Path=/order-serv/**
           filters:
             - StripPrefix=1
+    sentinel:
+      transport:
+        port: 7001
+        dashboard: 8080
 
 feign:
   sentinel:
